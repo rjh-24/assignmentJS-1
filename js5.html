@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>JS 5</title>
+  </head>
+  <body>
+    <h1>Times Table</h1>
+    <script>
+      // compute each product and store into result, return result at end of computations
+      const timesTable = (num) => {
+        const result = [];
+        for (let i = 1; i < 13; i++) {
+          result.push(num * i);
+        }
+
+        return result;
+      };
+
+      // programmatically create a div wrapper with p text containing displayed results
+      const displayTimesResult = (num) => {
+        const displayedContainer = document.createElement("div");
+        displayedContainer.id = `${num}-result-container`;
+
+        const results = timesTable(num);
+        for (let i = 0; i < results.length; i++) {
+          const currProduct = results[i];
+
+          const displayResultText = document.createElement("p");
+          displayResultText.innerHTML = `${num} x ${i + 1} = ${results[i]}`;
+          displayedContainer.appendChild(displayResultText);
+        }
+
+        document.body.appendChild(displayedContainer);
+      };
+
+      const params = [3, 7, 11];
+
+      // loop over each param and insert hr as needed
+      for (let i = 0; i < params.length; i++) {
+        displayTimesResult(params[i]);
+
+        if (i !== params.length - 1) {
+          const hrElement = document.createElement("hr");
+          document.body.appendChild(hrElement);
+        }
+      }
+    </script>
+  </body>
+</html>

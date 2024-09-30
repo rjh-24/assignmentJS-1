@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>JS 2</title>
+  </head>
+  <body>
+    <h1>Fahrenheit and Celsius</h1>
+    <script>
+      user_fahrenheit_input = prompt(
+        "Please supply the temperature in Fahrenheit."
+      );
+      let fahrenehit_converted_to_celsius =
+        (Number(user_fahrenheit_input) - 32) * (5 / 9);
+
+      alert(
+        `Based on the input of ${user_fahrenheit_input}°F, the rough Celsius converted temperature is ${fahrenehit_converted_to_celsius}°C.`
+      );
+
+      user_celsius_input = prompt("Please supply the temperature in Celsius.");
+      let celsius_converted_to_fahrenheit =
+        Number(user_celsius_input) * (9 / 5) + 32;
+
+      alert(
+        `Based on the input of ${user_celsius_input}°C, the rough Fahrenheit converted temperature is ${celsius_converted_to_fahrenheit}°F.`
+      );
+    </script>
+  </body>
+</html>

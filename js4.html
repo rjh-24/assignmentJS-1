@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>JS 4</title>
+  </head>
+  <body>
+    <h1>Number Range</h1>
+    <div id="odd_numbers"></div>
+    <div id="sum_of_numbers"></div>
+    <script>
+      lower_range = prompt("Please supply the lower range.");
+      upper_range = prompt("Please supply the upper range.");
+
+      const odd_numbers = [];
+      let sum = 0;
+
+      for (let i = lower_range; i <= upper_range; i++) {
+        if (i % 2 !== 0) odd_numbers.push(i);
+        sum += Number(i);
+      }
+
+      document.getElementById(
+        "odd_numbers"
+      ).innerHTML = `Based on a lower range of ${lower_range} and upper range of ${upper_range}, the odd numbers are: ${odd_numbers.join(
+        ","
+      )}.`;
+      document.getElementById(
+        "sum_of_numbers"
+      ).innerHTML = `The sum of numbers is: ${sum}.`;
+    </script>
+  </body>
+</html>

@@ -22,29 +22,29 @@
 
       let number_of_children;
 
-      // IIFE to ensure that the user is entering a valid numerical answer
-      (function () {
-        while (true) {
-          number_of_children_prompt = prompt("How many children do you have?");
-          numOfChildren = Number(number_of_children_prompt);
+      while (true) {
+        number_of_children_prompt = prompt("How many children do you have?");
+        numOfChildren = Number(number_of_children_prompt);
 
-          if (!isNaN(numOfChildren)) {
-            number_of_children = number_of_children_prompt;
-            break;
-          }
-          alert("Please enter a valid numerical value.");
+        if (!isNaN(numOfChildren)) {
+          number_of_children = number_of_children_prompt;
+          break;
         }
-      })();
+        alert("Please enter a valid numerical value.");
+      }
 
       const number_of_children_response = document.createElement("p");
 
-      switch (number_of_children.toString()) {
-        case "0":
+      switch (Number(number_of_children)) {
+        case 0:
           number_of_children_response.innerHTML = "You have no children.";
-        case "1":
+          break;
+        case 1:
           number_of_children_response.innerHTML = "You have 1 child.";
+          break;
         default:
           number_of_children_response.innerHTML = `You have ${number_of_children} children.`;
+          break;
       }
 
       document

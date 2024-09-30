@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>JS 6</title>
+  </head>
+  <body>
+    <h1>Element Count</h1>
+    <div id="answer"></div>
+    <script>
+      const getPseudoRandomInt = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      };
+
+      const count = (arr, value) => {
+        let lessThanThresholdCount = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          const currValue = arr[i];
+          if (currValue < value) lessThanThresholdCount++;
+        }
+
+        return lessThanThresholdCount;
+      };
+
+      const testCount = () => {
+        const genArr = [],
+          randomizedArrLength = getPseudoRandomInt(5, 10),
+          randomizedThreshold = getPseudoRandomInt(1, 100);
+
+        while (genArr.length < randomizedArrLength) {
+          const newInt = getPseudoRandomInt(1, 100);
+          genArr.push(newInt);
+        }
+
+        const answer = count(genArr, randomizedThreshold);
+
+        document.getElementById(
+          "answer"
+        ).innerHTML = `Given array [${genArr.join(
+          ", "
+        )}], the count of elements less than ${randomizedThreshold} is ${answer}.`;
+      };
+
+      testCount();
+    </script>
+  </body>
+</html>

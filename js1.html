@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>JS 1</title>
+  </head>
+  <body>
+    <h1>JS 1</h1>
+    <div id="sentence-container"></div>
+    <script>
+      first_name = prompt("What is your first name?");
+      last_name = prompt("What is your last name?");
+
+      first_name = first_name.charAt(0).toUpperCase() + first_name.slice(1);
+      last_name = last_name.charAt(0).toUpperCase() + last_name.slice(1);
+
+      alert(`Your name is ${first_name} ${last_name}`);
+
+      let number_of_children;
+
+      // IIFE to ensure that the user is entering a valid numerical answer
+      (function () {
+        while (true) {
+          number_of_children_prompt = prompt("How many children do you have?");
+          numOfChildren = Number(number_of_children_prompt);
+
+          if (!isNaN(numOfChildren)) {
+            number_of_children = number_of_children_prompt;
+            break;
+          }
+          alert("Please enter a valid numerical value.");
+        }
+      })();
+
+      const number_of_children_response = document.createElement("p");
+
+      switch (number_of_children.toString()) {
+        case "0":
+          number_of_children_response.innerHTML = "You have no children.";
+        case "1":
+          number_of_children_response.innerHTML = "You have 1 child.";
+        default:
+          number_of_children_response.innerHTML = `You have ${number_of_children} children.`;
+      }
+
+      document
+        .getElementById("sentence-container")
+        .appendChild(number_of_children_response);
+    </script>
+  </body>
+</html>
